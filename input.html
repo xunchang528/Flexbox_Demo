@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
+    <title>from input demo</title>
+</head>
+
+<body>
+    <section>
+        <form action="#">
+            <label for="fname">First Name</label>
+            <input type="text" name="firstName" id="fname" placeholder="Your first name...">
+
+            <label for="lname">Last Name</label>
+            <input type="text" name="lastName" id="lname" placeholder="Your last name...">
+
+            <label for="country">Country</label>
+            <select name="country" id="country">
+                <option value="10">China</option>
+                <option value="9">America</option>
+                <option value="8">Canada</option>
+                <option value="7">Australia</option>
+            </select>
+
+            <!-- <label for="female">female</label>
+            <input type="checkbox" id="female" name="gender">
+            <label for="male">Male</label>
+            <input type="checkbox" id="male" name="gender"> -->
+
+            <label for="female">female</label>
+            <input type="radio" id="female" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="male" name="gender">
+            <!-- type为radio的时候 如果name一致 就是单选框 -->
+            <br>
+            <label for="pwd">Password</label>
+            <input type="password" id="pwd" name="myPassword" placeholder="Your password...">
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+</body>
+
+</html>

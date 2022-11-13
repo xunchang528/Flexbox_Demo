@@ -1,0 +1,185 @@
+:root {
+    --red:#f1f1f1;
+    --orange:#c46666;
+    --gold:#faad14;
+    --lime:#8fa063;
+    --green:#52c41a;
+    --cyan:#13c2c2;
+    --blue:#8cadcc;
+    --purple:#722ed1;
+    --nagenta:hsl(327, 12%, 50%);
+    --xuyaodeyanse:hsl(192, 46%, 77%);
+    font-size: 10px;
+    // 1rem =font-size
+    
+    // font-family: "PingFang SC", "Microsoft Yahei", monospace;
+    // font-family: 'Dancing Script', cursive;
+    font-family: "roboto",sans-serif;
+    font-weight: 700;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+@mixin border {
+    border: 0.2rem dashed var(--blue);
+}
+
+@mixin fontstyle {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 5rem;
+    color: white;
+}
+
+@mixin center {
+    display: grid;
+    place-items: center;
+}
+
+html,body {
+    width: 100vw;
+    height: 100vh;
+}
+
+section#page {
+    @include fontstyle;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cyan);
+    height: 100%;
+    header {
+    display: flex;
+    height: 10rem;
+
+    * {
+        @include center;
+        width: 12rem;
+        @include border;
+
+        //flex 默认值
+        // flex-grow: 0;
+        // flex-shrink: 1;
+        // flex-basis: auto;
+        
+        // flex-grow: 1;
+        // 如果flex-basis=0 不会缩小了
+
+        // flex: 12rem;在设定flex等于某个数值时 flex-grow=1
+        // flex-basis: 12rem; flex-grow: 1;
+        //设定为两个值时，第一个一定是flex-grow没有单位，第二个没单位则是shrink 有则是basis
+        flex: 1 1;
+        flex: 1 10rem; 
+        flex: 0 1 auto;
+
+        flex-basis: 12rem;
+        //  grow shrink basis
+        
+    }
+    .box-1 {
+        background-color: var(--gold);
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+
+    .box-2 {  
+        background-color: var(--xuyaodeyanse);
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+
+    .box-3 {
+        background-color: var(--nagenta);
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+
+    .box-4 {
+        background-color: var(--lime);
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+
+    .box-5 {
+        background-color: var(--orange);
+        flex-grow: 1;
+        flex-shrink: 54;
+    }
+    
+    .box-6 {
+        background-color: var(--purple);
+        flex-grow: 0;
+        flex-shrink: 1;
+    }
+    }
+    main {
+        flex-grow: 1;
+        @include border();
+        display: flex;
+
+        >aside {
+            @include center();  
+            @include border();
+            background-color: var(--lime);
+            flex-basis: 20rem;
+            flex-shrink: 0;
+
+            @media screen and (max-width: 60rem) {
+                // flex-basis: 150px;= width: 150px;
+                flex-basis: 15rem;
+                font-size: 4rem;
+            }
+            @media screen and (max-width: 50rem) {
+                flex-basis: 12rem;
+                font-size: 3rem;
+            }
+        }
+
+        >div {
+            @include center();  
+            @include border();
+            flex-grow: 1;
+
+            >iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media screen and (max-width: 40rem){
+            flex-direction: column;
+            > aside {
+                width: 100%;
+            }
+        }
+    }
+    footer {
+        display: flex;
+        @include border();
+
+        * {
+            @include center;
+            flex: 1;
+        }
+
+        :nth-child(1) {
+            background-color: var(--orange);
+        }
+        :nth-child(2) {
+            background-color: var(--purple);
+        }
+        :nth-child(3) {
+            background-color: var(--red);
+        }
+    }
+}
+
+
+
+
